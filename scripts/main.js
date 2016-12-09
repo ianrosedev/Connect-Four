@@ -1,4 +1,7 @@
-let MasterArray = [];
+let MasterArray = [],
+    Player1 = [],
+    Player2 = [];
+    color = 'red';
 
 (function populateMasterArray() {
   // Row
@@ -11,4 +14,8 @@ let MasterArray = [];
   }
 })();
 
-console.log(MasterArray);
+$('#user-submit').on('click', function() {
+  $('#foo').addClass('red');
+  $('#cpu-color').text(color);
+  console.log(color);
+});

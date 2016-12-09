@@ -7,6 +7,14 @@
 </head>
 <body>
 
+  <div id="user-input">
+    <h1>Play</h1>
+    <h3 class="color">
+    <input type="button" value="submit" id="user-submit">
+    <p id="cpu-color"></p>
+    <p id="user-submit"></p>
+  </div>
+
   <div id="game">
 
     <table>
@@ -23,14 +31,6 @@
       <tr>
         <td class="tile-box">
           <div class="tile"></div>
-          <div class="circle red"></div>
-        </td>
-        <td class="tile-box">
-          <div class="tile"></div>
-          <div class="circle blue"></div>
-        </td>
-        <td class="tile-box">
-          <div class="tile"></div>
           <div class="circle"></div>
         </td>
         <td class="tile-box">
@@ -44,6 +44,14 @@
         <td class="tile-box">
           <div class="tile"></div>
           <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle" id="foo"></div>
         </td>
         <td class="tile-box">
           <div class="tile"></div>
@@ -208,8 +216,9 @@
     </table>
 
   </div>
-  
+
   <!-- JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>
