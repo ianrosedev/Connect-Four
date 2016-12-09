@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Connect Four</title>
+  <link href="styles/main.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="game">
+
+    <table>
+      <tr>
+        <th><input type="button" value="Row 1" id="row1"></th>
+        <th><input type="button" value="Row 2" id="row2"></th>
+        <th><input type="button" value="Row 3" id="row3"></th>
+        <th><input type="button" value="Row 4" id="row4"></th>
+        <th><input type="button" value="Row 5" id="row5"></th>
+        <th><input type="button" value="Row 6" id="row6"></th>
+        <th><input type="button" value="Row 7" id="row7"></th>
+      </tr>
+
+      <tr>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle red"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle blue"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+        <td class="tile-box">
+          <div class="tile"></div>
+          <div class="circle"></div>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+  
+  <!-- JavaScript -->
+  <script src="scripts/main.js"></script>
+</body>
+</html>

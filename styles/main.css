@@ -1,0 +1,64 @@
+body {
+  background: #000;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#game {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 706px;
+  border-right: 10px solid yellow;
+  border-bottom: 50px solid yellow;
+  border-left: 10px solid yellow;
+  padding: 0;
+}
+
+input[type=button] {
+  border: none;
+  width: 99px;
+  height: 30px;
+  font-size: 18px;
+  background-color: green;
+}
+
+table, th, td, tr {
+  border: none;
+  border-collapse: collapse;
+}
+
+.tile-box {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: grey;
+  width: 100px;
+  height: 100px;
+}
+
+.circle {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+  border: 1px solid #000;
+  background-color: #FFF;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
