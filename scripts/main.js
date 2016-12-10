@@ -18,13 +18,39 @@ let MasterArray = [],
 
 $('#cpu-color').text(`Choose a spot, ${color}`);
 
-$('#row1').on('click', row1);
+$('#row1').on('click', function() {
+  addToken(0);
+});
 
-function row1() {
-  for (let i = MasterArray[0].length - 1; i >= 0; i--) {
-    if (MasterArray[0][i] === null) {
-      MasterArray[0][i] = color;
-      $('#0' + i).addClass(color);
+$('#row2').on('click', function() {
+  addToken(1);
+});
+
+$('#row3').on('click', function() {
+  addToken(2);
+});
+
+$('#row4').on('click', function() {
+  addToken(3);
+});
+
+$('#row5').on('click', function() {
+  addToken(4);
+});
+
+$('#row6').on('click', function() {
+  addToken(5);
+});
+
+$('#row7').on('click', function() {
+  addToken(6);
+});
+
+function addToken(rowNumber) {
+  for (let i = MasterArray[rowNumber].length - 1; i >= 0; i--) {
+    if (MasterArray[rowNumber][i] === null) {
+      MasterArray[rowNumber][i] = color;
+      $('#' + rowNumber + i).addClass(color);
       return;
     }
   }
