@@ -25,11 +25,11 @@ body {
 }
 
 input[type=button] {
-  border: none;
+  border: 1px solid black;
   width: 99px;
   height: 30px;
   font-size: 18px;
-  background-color: green;
+  background-color: transparent;
 }
 
 table, th, td, tr {
