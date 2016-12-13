@@ -6,7 +6,7 @@ let MasterArray = [],
   // Columns
   for (let i = 0; i < 7; i ++) {
     MasterArray.push([]);
-    // Places
+    // Rows
     for (let j = 0; j < 6; j++) {
       MasterArray[i].push(null);
     }
@@ -28,15 +28,15 @@ function addToken(column) {
 }
 
 // Check for win
-function checkForWin(column, place) {
+function checkForWin(column, row) {
   const m = MasterArray;
 
   // Vertical Win
   (function verticalWin() {
-    if (m[column][place + 3]) {
-      if (color === m[column][place + 1] &&
-          color === m[column][place + 2] &&
-          color === m[column][place + 3]) {
+    if (m[column][row + 3]) {
+      if (color === m[column][row + 1] &&
+          color === m[column][row + 2] &&
+          color === m[column][row + 3]) {
         alert('Win');
       }
     }
@@ -48,7 +48,7 @@ function checkForWin(column, place) {
 
     for (let i = -3; i <= 3; i++) {
       if (m[column + i]) {
-        horizontalArray.push(m[column + i][place]);
+        horizontalArray.push(m[column + i][row]);
       }
     }
 
@@ -70,7 +70,7 @@ function checkForWin(column, place) {
 
     for (let i = -3; i <= 3; i++) {
       if (m[column + i]) {
-        diagonalForwardArray.push(m[column + i][place + -(i)]);
+        diagonalForwardArray.push(m[column + i][row + -(i)]);
       }
     }
 
@@ -92,7 +92,7 @@ function checkForWin(column, place) {
 
     for (let i = -3; i <= 3; i++) {
       if (m[column + i]) {
-        diagonalBackArray.push(m[column + i][place + i]);
+        diagonalBackArray.push(m[column + i][row + i]);
       }
     }
 
