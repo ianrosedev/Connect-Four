@@ -46,7 +46,7 @@ function checkForWin(column, place) {
   (function horizontalWin() {
     let horizontalArray = [];
 
-    for (let i = -3; i <= 4; i++) {
+    for (let i = -3; i <= 3; i++) {
       if (m[column + i]) {
         horizontalArray.push(m[column + i][place]);
       }
