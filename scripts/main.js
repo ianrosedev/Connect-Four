@@ -14,13 +14,15 @@ let MasterArray = [],
 })();
 
 // Add Token & Check for win
-function addToken(columnNumber) {
-  for (let i = MasterArray[columnNumber].length - 1; i >= 0; i--) {
-    if (MasterArray[columnNumber][i] === null) {
-      MasterArray[columnNumber][i] = color;
-      $('#' + columnNumber + i).addClass(color);
-      checkForWin(columnNumber, i);
-      return;
+function addToken(column) {
+  const m = MasterArray;
+
+  for (let i = m[column].length - 1; i >= 0; i--) {
+    if (m[column][i] === null) {
+      m[column][i] = color;
+      $('#' + column + i).addClass(color);
+      checkForWin(column, i);
+        return;
     }
   }
 }
@@ -29,22 +31,37 @@ function addToken(columnNumber) {
 function checkForWin(column, place) {
   const m = MasterArray;
 
-  // Win Vertical
-  if (m[column][place] === m[column][place + 1] && m[column][place] === m[column][place + 2] && m[column][place] === m[column][place + 3]) {
-    alert('Win');
-  }
-  //Win Across Right
-  if (m[column + 3]) {
-    if (m[column][place] === m[column + 1][place] && m[column][place] === m[column + 2][place] && m[column][place] === m[column + 3][place]) {
-      alert('Win!');
+  // Vertical Win
+  (function verticalWin() {
+    if (m[column][place + 3]) {
+      if (color === m[column][place + 1] &&
+          color === m[column][place + 2] &&
+          color === m[column][place + 3]) {
+        alert('Win');
+      }
     }
-  }
-  // Win Across Left
-  if (m[column - 3]) {
-    if (m[column][place] === m[column - 1][place] && m[column][place] === m[column - 2][place] && m[column][place] === m[column - 3][place]) {
-      alert('Win!');
+  })();
+
+  // Horizontal Win
+  (function horizontalWin() {
+    let horizontalArray = [];
+
+    for (let i = -3; i <= 4; i++) {
+      if (m[column + i]) {
+        horizontalArray.push(m[column + i][place]);
+      }
     }
-  }
+
+    for (let i = 0; i < horizontalArray.length; i++) {
+      if (color === horizontalArray[i] &&
+          color === horizontalArray[i + 1] &&
+          color === horizontalArray[i + 2] &&
+          color === horizontalArray[i + 3]) {
+        alert('win!');
+      }
+    }
+  })();
+
 }
 
 // Change Token color and update page
