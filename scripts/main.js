@@ -3,10 +3,10 @@ let MasterArray = [],
 
 // Fills in MasterArray
 (function populateMasterArray() {
-  // Across
+  // Columns
   for (let i = 0; i < 7; i ++) {
     MasterArray.push([]);
-    // Down
+    // Places
     for (let j = 0; j < 6; j++) {
       MasterArray[i].push(null);
     }
@@ -44,7 +44,7 @@ function checkForWin(column, place) {
 
   // Horizontal Win
   (function horizontalWin() {
-    let horizontalArray = [];
+    const horizontalArray = [];
 
     for (let i = -3; i <= 3; i++) {
       if (m[column + i]) {
@@ -57,6 +57,50 @@ function checkForWin(column, place) {
           color === horizontalArray[i + 1] &&
           color === horizontalArray[i + 2] &&
           color === horizontalArray[i + 3]) {
+        alert('win!');
+      }
+    }
+  })();
+
+  // !Works but needs work in first for loop
+  // Pushing undefined to array
+  // Diagonal Forward Win
+  (function diagonalForwardWin() {
+    const diagonalForwardArray = [];
+
+    for (let i = -3; i <= 3; i++) {
+      if (m[column + i]) {
+        diagonalForwardArray.push(m[column + i][place + -(i)]);
+      }
+    }
+
+    for (let i = 0; i < diagonalForwardArray.length; i++) {
+      if (color === diagonalForwardArray[i] &&
+          color === diagonalForwardArray[i + 1] &&
+          color === diagonalForwardArray[i + 2] &&
+          color === diagonalForwardArray[i + 3]) {
+        alert('win!');
+      }
+    }
+  })();
+
+  // !Works but needs work in first for loop
+  // Pushing undefined to array
+  // Diagonal Forward Win
+  (function diagonalBackWin() {
+    let diagonalBackArray = [];
+
+    for (let i = -3; i <= 3; i++) {
+      if (m[column + i]) {
+        diagonalBackArray.push(m[column + i][place + i]);
+      }
+    }
+
+    for (let i = 0; i < diagonalBackArray.length; i++) {
+      if (color === diagonalBackArray[i] &&
+          color === diagonalBackArray[i + 1] &&
+          color === diagonalBackArray[i + 2] &&
+          color === diagonalBackArray[i + 3]) {
         alert('win!');
       }
     }
