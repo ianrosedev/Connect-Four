@@ -48,11 +48,13 @@ function playerTurn() {
 function addToken(column) {
   const m = MasterArray;
 
+  // Add token
   for (let i = m[column].length - 1; i >= 0; i--) {
     if (m[column][i] === null) {
       m[column][i] = color;
       $('#' + column + i).addClass(color);
 
+      // Check for win
       if (checkForWin(column, i)) {
         return;
       } else {
@@ -69,7 +71,7 @@ function checkForWin(column, row) {
 
   // When player wins
   function onWin() {
-    setTimeout(function() {
+    return setTimeout(function() {
       $('#cpu-color').text('You Win!');
       alert('You Win!');
       // !Need ro reset MasterArray & clear color classes
@@ -104,7 +106,7 @@ function checkForWin(column, row) {
           color === horizontalArray[i + 1] &&
           color === horizontalArray[i + 2] &&
           color === horizontalArray[i + 3]) {
-        onWin();
+        return onWin();
       }
     }
   })();
@@ -127,7 +129,7 @@ function checkForWin(column, row) {
           color === diagonalForwardArray[i + 1] &&
           color === diagonalForwardArray[i + 2] &&
           color === diagonalForwardArray[i + 3]) {
-        onWin();
+        return onWin();
       }
     }
   })();
@@ -149,7 +151,7 @@ function checkForWin(column, row) {
           color === diagonalBackArray[i + 1] &&
           color === diagonalBackArray[i + 2] &&
           color === diagonalBackArray[i + 3]) {
-        onWin();
+        return onWin();
       }
     }
   })();
