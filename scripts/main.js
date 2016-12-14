@@ -21,8 +21,13 @@ function addToken(column) {
     if (m[column][i] === null) {
       m[column][i] = color;
       $('#' + column + i).addClass(color);
-      checkForWin(column, i);
+
+      if (checkForWin(column, i)) {
         return;
+      } else {
+        playerTurn();
+        return;
+      }
     }
   }
 }
@@ -31,13 +36,24 @@ function addToken(column) {
 function checkForWin(column, row) {
   const m = MasterArray;
 
+  // When player wins
+  function onWin() {
+    setTimeout(function() {
+      $('#cpu-color').text('You WIN!');
+      alert('You Win!');
+      // !Need ro reset MasterArray & clear color classes
+      // to reset game
+      // MasterArray = [];
+    });
+  };
+
   // Vertical Win
   (function verticalWin() {
     if (m[column][row + 3]) {
       if (color === m[column][row + 1] &&
           color === m[column][row + 2] &&
           color === m[column][row + 3]) {
-        alert('Win');
+        onWin();
       }
     }
   })();
@@ -57,7 +73,7 @@ function checkForWin(column, row) {
           color === horizontalArray[i + 1] &&
           color === horizontalArray[i + 2] &&
           color === horizontalArray[i + 3]) {
-        alert('win!');
+        onWin();
       }
     }
   })();
@@ -65,6 +81,7 @@ function checkForWin(column, row) {
   // !Works but needs work in first for loop
   // Pushing undefined to array
   // Diagonal Forward Win
+  // try && (row + -(i)) <= 5
   (function diagonalForwardWin() {
     const diagonalForwardArray = [];
 
@@ -79,7 +96,7 @@ function checkForWin(column, row) {
           color === diagonalForwardArray[i + 1] &&
           color === diagonalForwardArray[i + 2] &&
           color === diagonalForwardArray[i + 3]) {
-        alert('win!');
+        onWin();
       }
     }
   })();
@@ -101,7 +118,7 @@ function checkForWin(column, row) {
           color === diagonalBackArray[i + 1] &&
           color === diagonalBackArray[i + 2] &&
           color === diagonalBackArray[i + 3]) {
-        alert('win!');
+        onWin();
       }
     }
   })();
@@ -124,37 +141,30 @@ function playerTurn() {
 // Add Tokens On Click
 $('#column1').on('click', function() {
   addToken(0);
-  playerTurn();
 });
 
 $('#column2').on('click', function() {
   addToken(1);
-  playerTurn();
 });
 
 $('#column3').on('click', function() {
   addToken(2);
-  playerTurn();
 });
 
 $('#column4').on('click', function() {
   addToken(3);
-  playerTurn();
 });
 
 $('#column5').on('click', function() {
   addToken(4);
-  playerTurn();
 });
 
 $('#column6').on('click', function() {
   addToken(5);
-  playerTurn();
 });
 
 $('#column7').on('click', function() {
   addToken(6);
-  playerTurn();
 });
 
 playerTurn();
