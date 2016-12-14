@@ -76,7 +76,7 @@ function checkForWin(column, row) {
       alert('You Win!');
       // !Need ro reset MasterArray & clear color classes
       // to reset game
-      // MasterArray = [];
+      MasterArray = [];
     });
   }
 
