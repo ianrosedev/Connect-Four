@@ -11,7 +11,20 @@ let MasterArray = [],
       MasterArray[i].push(null);
     }
   }
-})();
+})()
+
+// Adds ability to add a token to a column
+for (let i = 1; i <= 7; i++) {
+  addTokenToColumn(i);
+}
+
+function addTokenToColumn(n) {
+  return (function() {
+    $('#column' + n).on('click', function() {
+      addToken(n - 1);
+    });
+  })();
+}
 
 // Add Token & Check for win
 function addToken(column) {
@@ -137,34 +150,5 @@ function playerTurn() {
     $('#cpu-color').text(`Choose a spot, ${color}`);
   }
 }
-
-// Add Tokens On Click
-$('#column1').on('click', function() {
-  addToken(0);
-});
-
-$('#column2').on('click', function() {
-  addToken(1);
-});
-
-$('#column3').on('click', function() {
-  addToken(2);
-});
-
-$('#column4').on('click', function() {
-  addToken(3);
-});
-
-$('#column5').on('click', function() {
-  addToken(4);
-});
-
-$('#column6').on('click', function() {
-  addToken(5);
-});
-
-$('#column7').on('click', function() {
-  addToken(6);
-});
 
 playerTurn();
