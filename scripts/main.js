@@ -1,5 +1,9 @@
 let MasterArray = [],
-    color = 'blue';
+    color = 'red';
+
+// SETUP
+// Default Text
+$('#cpu-color').text(`Choose a spot, ${color}`);
 
 // Fills in MasterArray
 (function populateMasterArray() {
@@ -24,6 +28,20 @@ function addTokenToColumn(n) {
       addToken(n - 1);
     });
   })();
+}
+// END SETUP
+
+// Change Token color and update page
+function playerTurn() {
+  if (color === 'red') {
+    color = 'blue';
+    $('th').removeClass('red').addClass('blue');
+    $('#cpu-color').text(`Choose a spot, ${color}`);
+  } else {
+    color = 'red';
+    $('th').removeClass('blue').addClass('red');
+    $('#cpu-color').text(`Choose a spot, ${color}`);
+  }
 }
 
 // Add Token & Check for win
@@ -52,13 +70,13 @@ function checkForWin(column, row) {
   // When player wins
   function onWin() {
     setTimeout(function() {
-      $('#cpu-color').text('You WIN!');
+      $('#cpu-color').text('You Win!');
       alert('You Win!');
       // !Need ro reset MasterArray & clear color classes
       // to reset game
       // MasterArray = [];
     });
-  };
+  }
 
   // Vertical Win
   (function verticalWin() {
@@ -66,7 +84,7 @@ function checkForWin(column, row) {
       if (color === m[column][row + 1] &&
           color === m[column][row + 2] &&
           color === m[column][row + 3]) {
-        onWin();
+        return onWin();
       }
     }
   })();
@@ -137,18 +155,3 @@ function checkForWin(column, row) {
   })();
 
 }
-
-// Change Token color and update page
-function playerTurn() {
-  if (color === 'blue') {
-    color = 'red';
-    $('th').removeClass('blue').addClass('red');
-    $('#cpu-color').text(`Choose a spot, ${color}`);
-  } else {
-    color = 'blue';
-    $('th').removeClass('red').addClass('blue');
-    $('#cpu-color').text(`Choose a spot, ${color}`);
-  }
-}
-
-playerTurn();
