@@ -1,7 +1,7 @@
 let MasterArray = [],
     color = 'red';
 
-// SETUP
+// INITIAL SETUP
 // Fills in MasterArray
 function populateMasterArray() {
   // Columns
@@ -41,23 +41,6 @@ function playerTurn() {
   }
 }
 
-// Add Token & Check for win
-function addToken(column) {
-  const m = MasterArray;
-
-  // Add token
-  for (let i = m[column].length - 1; i >= 0; i--) {
-    if (m[column][i] === null) {
-      m[column][i] = color;
-      $('#' + column + i).addClass(color);
-
-      // Check for win
-      return checkForWin(column, i) || playerTurn();
-
-    }
-  }
-}
-
 // Check for win
 function checkForWin(column, row) {
   const m = MasterArray;
@@ -93,15 +76,12 @@ function checkForWin(column, row) {
     }
   })();
 
-  // !Works but needs work in first for loop
-  // Pushing undefined to array
   // Diagonal Forward Win
-  // try && (row + -(i)) <= 5
   (function diagonalForwardWin() {
     const diagonalForwardArray = [];
 
     for (let i = -3; i <= 3; i++) {
-      if (m[column + i]) {
+      if (m[column + i] && (row + -(i)) >= 0 && (row + -(i)) <= 5) {
         diagonalForwardArray.push(m[column + i][row + -(i)]);
       }
     }
@@ -116,14 +96,12 @@ function checkForWin(column, row) {
     }
   })();
 
-  // !Works but needs work in first for loop
-  // Pushing undefined to array
   // Diagonal Forward Win
   (function diagonalBackWin() {
     let diagonalBackArray = [];
 
     for (let i = -3; i <= 3; i++) {
-      if (m[column + i]) {
+      if (m[column + i] && (row + i >= 0) && (row + i <= 5)) {
         diagonalBackArray.push(m[column + i][row + i]);
       }
     }
@@ -137,17 +115,31 @@ function checkForWin(column, row) {
       }
     }
   })();
-
 }
 
 // When player wins
 function onWin() {
-  alert(`${color} wins!`);
+  alert(`${color.charAt(0).toUpperCase() + color.slice(1)} Wins!`);
 
   // Reset Game
   MasterArray = [];
   populateMasterArray();
   color = 'blue';
   $('.circle').removeClass('red blue');
-  return;
+}
+
+// Add Token & Check for win
+function addToken(column) {
+  const m = MasterArray;
+
+  // Add token
+  for (let i = m[column].length - 1; i >= 0; i--) {
+    if (m[column][i] === null) {
+      m[column][i] = color;
+      $('#' + column + i).addClass(color);
+
+      // Check for win or go to next players turn
+      return checkForWin(column, i) || playerTurn();
+    }
+  }
 }
