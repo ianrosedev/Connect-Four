@@ -2,11 +2,8 @@ let MasterArray = [],
     color = 'red';
 
 // SETUP
-// Default Text
-$('#cpu-color').text(`Choose a spot, ${color}`);
-
 // Fills in MasterArray
-(function populateMasterArray() {
+function populateMasterArray() {
   // Columns
   for (let i = 0; i < 7; i ++) {
     MasterArray.push([]);
@@ -15,19 +12,21 @@ $('#cpu-color').text(`Choose a spot, ${color}`);
       MasterArray[i].push(null);
     }
   }
-})()
-
-// Adds ability to add a token to a column
-for (let i = 1; i <= 7; i++) {
-  addTokenToColumn(i);
 }
 
+populateMasterArray();
+
+// Adds ability to add a token to a column
 function addTokenToColumn(n) {
   return (function() {
     $('#column' + n).on('click', function() {
       addToken(n - 1);
     });
   })();
+}
+
+for (let i = 1; i <= 7; i++) {
+  addTokenToColumn(i);
 }
 // END SETUP
 
@@ -36,11 +35,9 @@ function playerTurn() {
   if (color === 'red') {
     color = 'blue';
     $('th').removeClass('red').addClass('blue');
-    $('#cpu-color').text(`Choose a spot, ${color}`);
   } else {
     color = 'red';
     $('th').removeClass('blue').addClass('red');
-    $('#cpu-color').text(`Choose a spot, ${color}`);
   }
 }
 
@@ -55,12 +52,8 @@ function addToken(column) {
       $('#' + column + i).addClass(color);
 
       // Check for win
-      if (checkForWin(column, i)) {
-        return;
-      } else {
-        playerTurn();
-        return;
-      }
+      return checkForWin(column, i) || playerTurn();
+
     }
   }
 }
@@ -68,17 +61,6 @@ function addToken(column) {
 // Check for win
 function checkForWin(column, row) {
   const m = MasterArray;
-
-  // When player wins
-  function onWin() {
-    return setTimeout(function() {
-      $('#cpu-color').text('You Win!');
-      alert('You Win!');
-      // !Need ro reset MasterArray & clear color classes
-      // to reset game
-      MasterArray = [];
-    });
-  }
 
   // Vertical Win
   (function verticalWin() {
@@ -156,4 +138,16 @@ function checkForWin(column, row) {
     }
   })();
 
+}
+
+// When player wins
+function onWin() {
+  alert(`${color} wins!`);
+
+  // Reset Game
+  MasterArray = [];
+  populateMasterArray();
+  color = 'blue';
+  $('.circle').removeClass('red blue');
+  return;
 }
