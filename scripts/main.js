@@ -123,9 +123,11 @@ function checkForWin(column, row) {
 function onWin() {
   const thisColor = color;
 
-  // Reset Game
   setTimeout(function() {
+    // Alert winner
     alert(`${thisColor.charAt(0).toUpperCase() + thisColor.slice(1)} Wins!`);
+
+    // Reset Game
     $('.circle').removeClass('red blue');
     MasterArray = [];
     populateMasterArray();
