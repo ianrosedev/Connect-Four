@@ -1,1 +1,1 @@
-## WIP - Connect Four
+Connect Four
