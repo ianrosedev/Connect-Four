@@ -32,6 +32,8 @@ for (let i = 1; i <= 7; i++) {
 
 // Change Token color and update page
 function playerTurn() {
+  console.log('player: ' + color);
+
   if (color === 'red') {
     color = 'blue';
     $('th').removeClass('red').addClass('blue');
@@ -119,13 +121,17 @@ function checkForWin(column, row) {
 
 // When player wins
 function onWin() {
-  alert(`${color.charAt(0).toUpperCase() + color.slice(1)} Wins!`);
+  const thisColor = color;
 
   // Reset Game
-  MasterArray = [];
-  populateMasterArray();
-  color = 'blue';
-  $('.circle').removeClass('red blue');
+  setTimeout(function() {
+    alert(`${thisColor.charAt(0).toUpperCase() + thisColor.slice(1)} Wins!`);
+    $('.circle').removeClass('red blue');
+    MasterArray = [];
+    populateMasterArray();
+    color = 'red';
+    $('th').removeClass('blue').addClass('red');
+  }, 300);
 }
 
 // Add Token & Check for win
