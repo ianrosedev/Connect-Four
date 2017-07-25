@@ -32,8 +32,6 @@ for (let i = 1; i <= 7; i++) {
 
 // Change Token color and update page
 function playerTurn() {
-  console.log('player: ' + color);
-
   if (color === 'red') {
     color = 'blue';
     $('th').removeClass('red').addClass('blue');
@@ -98,7 +96,7 @@ function checkForWin(column, row) {
     }
   })();
 
-  // Diagonal Forward Win
+  // Diagonal Backward Win
   (function diagonalBackWin() {
     let diagonalBackArray = [];
 
